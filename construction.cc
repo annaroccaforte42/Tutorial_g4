@@ -37,7 +37,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
     	G4Material *worldMat =nist->FindOrBuildMaterial("G4_AIR");
 
 	G4MaterialPropertiesTable *mptWorld = new G4MaterialPropertiesTable();
-	mptWorld->AddProprerty("RINDEX",energy,rindexWorld,2);
+	mptWorld->AddProperty("RINDEX",energy,rindexWorld,2);
 
 	worldMat->SetMaterialPropertiesTable(mptWorld);
 
