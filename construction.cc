@@ -59,7 +59,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 
 	for(G4int i = 0; i<100; i++){
 		for(G4int j=0;j<100;j++){
-			G4PhysicalVolume *physDetector = new G4PVPlacement(0,G4ThreeVector(-0.5*m+(i+0.5)*m/100,-0.5*m+(j+0.5)*m/100,0.49*m),
+			G4VPhysicalVolume *physDetector = new G4PVPlacement(0,G4ThreeVector(-0.5*m+(i+0.5)*m/100,-0.5*m+(j+0.5)*m/100,0.49*m),
 			logicDetector,"physDetector",logicWorld,false,i*100+j,true);
 		}
 	}	
