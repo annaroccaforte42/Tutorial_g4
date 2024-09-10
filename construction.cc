@@ -1,4 +1,4 @@
-t#include "construction.hh"
+#include "construction.hh"
 MyDetectorConstruction :: MyDetectorConstruction()
 {}
 MyDetectorConstruction :: ~MyDetectorConstruction()
