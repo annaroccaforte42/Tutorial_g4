@@ -1,4 +1,4 @@
-#include "construction.hh"
+t#include "construction.hh"
 MyDetectorConstruction :: MyDetectorConstruction()
 {}
 MyDetectorConstruction :: ~MyDetectorConstruction()
@@ -25,7 +25,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 	G4double rindexAerogel[2]={1.1,1.1};
 
 	G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
-	mptAerogel->AddPropriety("RINDEX",energy,rindexAerogel,2);
+	mptAerogel->AddProperty("RINDEX",energy,rindexAerogel,2);
 
 	Aerogel->SetMaterialPropertiesTable(mptAerogel);
 
