@@ -1,6 +1,6 @@
 #include "detector.hh"
 
-MySensitiveDetector::MySensitiveDetector()
+MySensitiveDetector::MySensitiveDetector(G4String name) : G4SensitiveDetector(name)
 {}
 MySensitiveDetector::~MySensitiveDetector()
 {}
