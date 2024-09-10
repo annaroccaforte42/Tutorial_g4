@@ -1,4 +1,4 @@
-#ifnndef DETECTOR.HH
+#ifndef DETECTOR.HH
 #define DETECTOR.HH
 #include "G4VSensitiveDetector.hh"
 
