@@ -6,7 +6,7 @@ MyDetectorConstruction :: ~MyDetectorConstruction()
 G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 	G4NistManager *nist=G4NistManager::Instance();
     	
-	G4Material *SiO2 = new G4Material("Si=O2",2.201*g/cm3,2);
+	G4Material *SiO2 = new G4Material("SiO2",2.201*g/cm3,2);
 	SiO2->AddElement(nist->FindOrBuildElement("Si"),1);
 	SiO2->AddElement(nist->FindOrBuildElement("O"),2);
 	
