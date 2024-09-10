@@ -8,7 +8,6 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 
 
 
-
 	
 	G4Material *SiO2 = new G4Material("SiO2",2.201*g/cm3,2);
 	SiO2->AddElement(nist->FindOrBuildElement("Si"),1);
@@ -53,6 +52,8 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 	G4LogicalVolume *logicRadiator = new G4LogicalVolume(solidRadiator,Aerogel,"logicalRadiator");
 
 	G4VPhysicalVolume *physRadiator = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.25*m), logicRadiator, "physRadiator",logicWorld, false,0.,true);
+
+	G4Box *solidDetector = new G4Box("solidDetector",0.005*m,0.005*m,0.01*m);
 	
     
 	return physWorld;
