@@ -12,7 +12,7 @@ class MyPrimaryGenerator : public G4VUserPrimaryGeneratorAction
     	MyPrimaryGenerator();
     	~MyPrimaryGenerator();
 
-    	virtual void GeneratorPrimaries(G4Event*);
+    	virtual void GeneratePrimaries(G4Event*);
 private:
 	G4ParticleGun *fParticleGun;
 
