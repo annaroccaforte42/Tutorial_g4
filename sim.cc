@@ -34,6 +34,7 @@ int main(int argc, char**argv){
 	UImanager->ApplyCommand("/vis/drawVolume");
 	UImanager->ApplyCommand("/vis/viewer/set/autorefresh true");
 	UImanager->ApplyCommand("/vis/scene/add/trajectories smooth");
+	UImanager->ApplyCommand("/vis/viewer/rebuild");
 	ui->SessionStart();
 
     return 0;
