@@ -10,7 +10,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 	SiO2->AddElement(nist->FindOrBuildElement("Si"),1);
 	SiO2->AddElement(nist->FindOrBuildElement("O"),2);
 	
-	G4Material *SiO2 = new G4Material("H2O",1.*g/cm3,2);
+	G4Material *H2O = new G4Material("H2O",1.*g/cm3,2);
 	H2O->AddElement(nist->FindOrBuildElement("H"),2);
 	H2O->AddElement(nist->FindOrBuildElement("O"),1);
 
