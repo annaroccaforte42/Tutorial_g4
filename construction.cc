@@ -24,7 +24,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 	G4double energy[2] = {1.239841939*eV/0.2,1.239841939*eV/0.2/0.9};
 	G4double rindexAerogel[2]={1.1,1.1};
 
-	G4MaterialProprertiesTable *mptAerogel = new G4MaterialPropertiesTable();
+	G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
 	mptAerogel->AddPropriety("RINDEX",energy,rindexAerogel,2);
 
 	Aerogel->SetMaterialPropertiesTable(mptAerogel);
