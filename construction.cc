@@ -26,7 +26,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 	Aerogel->AddElement(C, 0.1*perCent);
 
 	G4double energy[2] = {1.239841939*eV/0.2,1.239841939*eV/0.2/0.9};
-	G4double rindexAerogel[2]={5.1,5.1};
+	G4double rindexAerogel[2]={1.1,1.1};
 	G4double rindexWorld[2]={1.0,1.0};
 
 	G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
@@ -37,6 +37,9 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
     	G4Material *worldMat =nist->FindOrBuildMaterial("G4_AIR");
 
 	G4MaterialPropertiesTable *mptWorld = new G4MaterialPropertiesTable();
+	mptWorld->AddProprerty("RINDEX",energy,rindexWorld,2);
+
+	worldMat->SetMaterialPropertiesTable(mptWorld);
 
     	G4Box *solidWorld = new  G4Box("solidWorld",0.5*m,0.5*m,0.5*m);
 
