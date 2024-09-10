@@ -19,7 +19,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 	G4Material *Aerogel = new G4Material("Aerogel", 0.200*g/cm3,3);
 	Aerogel->Addmaterial(SiO2, 62.5%*perCent);
 	Aerogel->Addmaterial(H2O, 37.4%*perCent);
-	Aerogel->Addmaterial(C, 0.1%*perCent);
+	Aerogel->AddElement(C, 0.1%*perCent);
 
     	G4Material *worldMat =nist->FindOrBuildMaterial("G4_AIR");
 
