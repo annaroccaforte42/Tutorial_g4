@@ -12,11 +12,13 @@
 
 class MyDetectorConstruction : public G4VUserDetectorConstruction
 {
-	public:
+public:
     	MyDetectorConstruction();
     	~MyDetectorConstruction();
 
     	virtual G4VPhysicalVolume *Construct();
+private:
+	G4LogicalVolume *logicDetector;
 
 };
 #endif
