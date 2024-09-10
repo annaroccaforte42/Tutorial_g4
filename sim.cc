@@ -32,7 +32,7 @@ int main(int argc, char**argv){
 	UImanager->ApplyCommand("/vis/open OGL");
 	UImanager->ApplyCommand("/vis/viewer/set/viewpointVector");
 	UImanager->ApplyCommand("/vis/drawVolume");
-	UImanager->ApplyCommand("/vis/viewer/set/autorefresh/true");
+	UImanager->ApplyCommand("/vis/viewer/set/autorefresh true");
 	UImanager->ApplyCommand("/vis/scene/add/trajectories smooth");
 	ui->SessionStart();
 
