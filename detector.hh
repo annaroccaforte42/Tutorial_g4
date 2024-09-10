@@ -1,6 +1,6 @@
 #ifnndef DETECTOR.HH
 #define DETECTOR.HH
-#include "G4VMySensitiveDetector.hh"
+#include "G4VSensitiveDetector.hh"
 
 class MySensitiveDetector : public G4VSensitiveDetector
 {
