@@ -1,6 +1,7 @@
 #ifndef RUN_HH
 #define RUN_HH
 #include "G4UserRunAction.hh"
+#include "g4root.hh"
 
 class MyRunAction : public G4UserRunAction
 {
