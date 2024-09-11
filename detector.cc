@@ -1,7 +1,9 @@
 #include "detector.hh"
 
 MySensitiveDetector::MySensitiveDetector(G4String name) : G4VSensitiveDetector(name)
-{}
+{
+  G4cout << "MySensitiveDetector::MySensitiveDetector" << G4endl;
+}
 MySensitiveDetector::~MySensitiveDetector()
 {}
 
