@@ -40,7 +40,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 
 	worldMat->SetMaterialPropertiesTable(mptWorld);
 
-    	G4Box *solidWorld = new  G4Box("solidWorld",0.49*m,0.49*m,0.01*m); //mezzo lato del box
+    	G4Box *solidWorld = new  G4Box("solidWorld",0.4*m,0.4*m,0.01*m); //mezzo lato del box
 
     	G4LogicalVolume *logicWorld = new G4LogicalVolume(solidWorld, worldMat, "logicWorld");
     	
@@ -54,7 +54,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 	G4VPhysicalVolume *physRadiator = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.25*m), logicRadiator, "physRadiator",logicWorld, false,0.,true);
 
 	//G4Box *solidDetector = new G4Box("solidDetector",0.005*m,0.005*m,0.01*m);
-	G4Box *solidDetector = new G4Box("solidDetector",0.05*m,0.05*m,0.05*m);
+	G4Box *solidDetector = new G4Box("solidDetector",0.05*m,0.05*m,0.01*m);
 	
 	logicDetector = new G4LogicalVolume(solidDetector, worldMat,"logicalDetector");
 	double n=10.;
