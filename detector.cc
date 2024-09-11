@@ -7,6 +7,7 @@ MySensitiveDetector::~MySensitiveDetector()
 
 G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhist)
 {
+  G4cout<<"MySensitiveDetector::ProcessHits"<<G4endl;
   G4Track *track = aStep->GetTrack();
 
   track->SetTrackStatus(fStopAndKill);
@@ -36,5 +37,5 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
   man->FillNtupleDColumn(2,posDetector[1]);
   man->FillNtupleDColumn(3,posDetector[2]);
   man->AddNtupleRow(0);
-  
+  G4cout<<"MySensitiveDetector::ProcessHits::end"<<G4endl;
 }
