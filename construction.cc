@@ -48,13 +48,17 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct(){
 	 "physWorld",0,false,0,true);
 
 	G4Box *solidRadiator = new G4Box("solidRadiator",0.4*m, 0.4*m, 0.01*m);
-
+/*G4Box *solidRadiator = new G4Box("solidRadiator",0.4*m, 0.4*m, 0.01*m);
+	G4LogicalVolume *logicRadiator = new G4LogicalVolume(solidRadiator,Aerogel,"logicalRadiator");
+	G4VPhysicalVolume *physRadiator = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.25*m), logicRadiator, "physRadiator",logicWorld, false,0.,true);
+	G4Box *solidDetector = new G4Box("solidDetector",0.005*m,0.005*m,0.01*m);
+*/
 	G4LogicalVolume *logicRadiator = new G4LogicalVolume(solidRadiator,Aerogel,"logicalRadiator");
 
 	G4VPhysicalVolume *physRadiator = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.25*m), logicRadiator, "physRadiator",logicWorld, false,0.,true);
 
 	//G4Box *solidDetector = new G4Box("solidDetector",0.005*m,0.005*m,0.01*m);
-	G4Box *solidDetector = new G4Box("solidDetector",0.05*m,0.05*m,0.01*m);
+	G4Box *solidDetector = new G4Box("solidDetector",0.005*m,0.005*m,0.01*m);
 	
 	logicDetector = new G4LogicalVolume(solidDetector, worldMat,"logicalDetector");
 	double n=10.;
