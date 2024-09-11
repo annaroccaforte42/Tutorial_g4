@@ -28,14 +28,14 @@ int main(int argc, char**argv){
     visManager->Initialize();
 
     G4UImanager *UImanager = G4UImanager::GetUIpointer();
-    	UImanager->ApplyCommand("/control/execute vis.mac");
-	/*UImanager->ApplyCommand("/vis/open OGL");
+    	//UImanager->ApplyCommand("/control/execute vis.mac");
+	UImanager->ApplyCommand("/vis/open OGL");
 	UImanager->ApplyCommand("/vis/viewer/set/viewpointVector");
 	UImanager->ApplyCommand("/vis/drawVolume");
 	UImanager->ApplyCommand("/vis/viewer/set/autorefresh true");
 	UImanager->ApplyCommand("/vis/scene/add/trajectories smooth");
 	UImanager->ApplyCommand("/vis/scene/endOfEventAction accumulate");
-	UImanager->ApplyCommand("/vis/viewer/rebuild");*/
+	UImanager->ApplyCommand("/vis/viewer/rebuild");
 	ui->SessionStart();
 
     return 0;
