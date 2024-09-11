@@ -6,8 +6,8 @@ MyRunAction::MyRunAction()
 MyRunAction::~MyRunAction()
 {}
 
-void MyRunAction::BeginOfRunAction(const G4Run*)
+void MyRunActionBeginOfRunAction(const G4Run*)
 {}
 
-void MyRunAction::EndOfRunAction(const G4Run*)
+void MyRunActionEndOfRunAction(const G4Run*)
 {}
