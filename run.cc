@@ -8,6 +8,7 @@ MyRunAction::~MyRunAction()
 
 void MyRunAction::BeginOfRunAction(const G4Run*)
 {
+  G4cout << "MyRunAction::BeginOfRunAction" << G4endl;
   G4AnalysisManager *man = G4AnalysisManager::Instance();
   man->OpenFile("output.root");  
 
