@@ -8,6 +8,7 @@
 #include "G4Box.hh"
 #include "G4PVPlacement.hh"
 #include "G4NistManager.hh"
+#include "detector.hh"
 
 
 class MyDetectorConstruction : public G4VUserDetectorConstruction
