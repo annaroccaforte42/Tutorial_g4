@@ -12,7 +12,7 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
   G4StepPoint *preStepPoint = aStep->GetPreStepPoint();
   G4StepPoint *postStepPoint = aStep->GetPostStepPoint();
 
-  G4ThreeVector posPhoton = preStepPoint->GetPossition();
+  G4ThreeVector posPhoton = preStepPoint->GetPosition();
 
-  G4cout << "Photon position: "<<posPosition << G4endl;
+  G4cout << "Photon position: "<<posPhoton << G4endl;
 }
