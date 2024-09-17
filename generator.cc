@@ -18,7 +18,7 @@ void MyPrimaryGenerator::GeneratePrimaries(G4Event *anEvent)
 	G4ParticleDefinition *particle=particleTable->FindParticle("proton");
 	
 
-    G4ThreeVector pos(0.03*m,0.03*m,0.);//change beam position
+    G4ThreeVector pos(0.0*m,0.0*m,0.);//change beam position
 	
     G4ThreeVector mom(0.,0.,1.);
 
