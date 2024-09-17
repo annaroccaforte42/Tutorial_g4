@@ -2,9 +2,6 @@
 #define RUN_HH
 
 #include "G4UserRunAction.hh"
-// include standalone root functions in Geant4
-// that is to avoid to include ROOT dependencies
-// it includes the class G4AnalysisManager class
 #include "g4root.hh"
 
 
