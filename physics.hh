@@ -1,4 +1,3 @@
-// trick to not include multiple times
 #ifndef PHYSICS_HH
 #define PHYSICS_HH
 
