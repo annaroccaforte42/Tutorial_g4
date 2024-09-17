@@ -10,6 +10,7 @@
 class MyPrimaryGenerator : public G4VUserPrimaryGeneratorAction
 {
 public:
+
 	MyPrimaryGenerator();
 	~MyPrimaryGenerator();
 	
