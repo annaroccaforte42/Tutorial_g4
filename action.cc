@@ -13,6 +13,4 @@ void MyActionInitialization::Build() const
 
 	MyRunAction *runAction = new MyRunAction();
 	SetUserAction(runAction);
-	// we are telling Geant4 that we do not use any default run action
-	// instead we want to use our own run action
 }
