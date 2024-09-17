@@ -9,6 +9,7 @@
 class MySensitiveDetector : public G4VSensitiveDetector
 {
 public:
+
 	MySensitiveDetector(G4String);
 	~MySensitiveDetector();
 
