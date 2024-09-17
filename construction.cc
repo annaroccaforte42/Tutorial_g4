@@ -8,30 +8,23 @@ MyDetectorConstruction::~MyDetectorConstruction()
 
 G4VPhysicalVolume* MyDetectorConstruction::Construct()
 {
-	// do not reinvent the wheel (materials)
 	G4NistManager *nist = G4NistManager::Instance();
 
-	// define material to use in the aerogel detector
-	// fused silica
 	G4Material *SiO2 = new G4Material("SiO2", 2.201*g/cm3, 2);
 	SiO2->AddElement(nist->FindOrBuildElement("Si"), 1);
 	SiO2->AddElement(nist->FindOrBuildElement("O"), 2);
 
-	// water
 	G4Material *H2O = new G4Material("H2O", 1.000*g/cm3, 2);
 	H2O->AddElement(nist->FindOrBuildElement("H"), 2);
 	H2O->AddElement(nist->FindOrBuildElement("O"), 1);
 
-	// carbon
 	G4Element *C = nist->FindOrBuildElement("C");
 
-	// build the aerogel material
 	G4Material *Aerogel = new G4Material("Aerogel", 0.200*g/cm3, 3);
 	Aerogel->AddMaterial(SiO2, 62.5*perCent);
 	Aerogel->AddMaterial(H2O, 27.4*perCent);
 	Aerogel->AddElement(C, 0.1*perCent);
 
-	// set optical properties of aerogel
 	G4double energy[2] = {1.2398*eV*um/0.2/um, 1.2398*eV*um/0.9/um};
 	G4double rindexAerogel[2] = {1.1, 1.1};
 	G4double rindexWorld[2] = {1.0, 1.0};
@@ -42,8 +35,6 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 	Aerogel->SetMaterialPropertiesTable(mptAerogel);
 
 	G4Material *worldMat = nist->FindOrBuildMaterial("G4_AIR");
-	// all physics happens within a boundary called world volume
-	// the world volume is what we have to return at the end of this method so it is necessary
 
 	G4MaterialPropertiesTable *mptWorld = new G4MaterialPropertiesTable();
 	mptWorld->AddProperty("RINDEX", energy, rindexWorld, 2);
@@ -54,24 +45,18 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 
 	G4LogicalVolume *logicWorld = new G4LogicalVolume(solidWorld, worldMat, "logicWorld");
 
-	// we want the world to be centered in the origin of our coordinate system
-	// always check for overlaps in the last argument
 	G4VPhysicalVolume *physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "PhysWorld", 0, false, 0, true);
 
-	// create the physical radiator
 	G4Box *solidRadiator = new G4Box("solidRadiator", .4*m, .4*m, .01*m);
 
 	G4LogicalVolume *logicRadiator = new G4LogicalVolume(solidRadiator, Aerogel, "logicRadiator");
 
 	G4VPhysicalVolume *physRadiator = new G4PVPlacement(0, G4ThreeVector(.0, .0, .25*m), logicRadiator, "physRadiator", logicWorld, false, 0, true);
 
-	// construction of the sensitive volume
 	G4Box *solidDetector = new G4Box("solidDetector", 0.005*m, 0.005*m, 0.01*m);
 
-	// the material of the detector it does not matter because we only need it to sense the optical photons
 	logicDetector = new G4LogicalVolume(solidDetector, worldMat, "logicDetector");
 
-	// we have to create arrays of sensitive detectors
 	for(G4int i = 0; i < 100; i++)
 	{
 		for(G4int j = 0; j < 100; j++)
