@@ -38,7 +38,7 @@ int main(int argc, char** argv)
 	else {
 		G4String command ="/control/execute";
 		G4String fileName=argv[1];
-		UImanager->ApplyCommand(command+filename);
+		UImanager->ApplyCommand(command+fileName);
 	}
 	return 0;
 }
