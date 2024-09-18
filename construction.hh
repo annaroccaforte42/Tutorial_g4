@@ -27,7 +27,8 @@ private:
 	G4int nCols,nRows;
 
 	virtual void ConstructSDandField();
-
+	G4int nCols, nRows;
+	G4Box *solidWorld, *solidRadiator;
 	G4GenericMessenger *fMessenger;
 };
 
