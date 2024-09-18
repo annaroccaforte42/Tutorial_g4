@@ -35,6 +35,10 @@ void MyDetectorConstruction::DefineMaterials(){
 	Aerogel->AddElement(C, 0.1*perCent);
 
 	worldMat = nist->FindOrBuildMaterial("G4_AIR");
+
+	G4double energy[2] = {1.2398*eV*um/0.2/um, 1.2398*eV*um/0.9/um};
+	G4double rindexAerogel[2] = {1.1, 1.1};
+	G4double rindexWorld[2] = {1.0, 1.0};
 	
 	G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
 	mptAerogel->AddProperty("RINDEX", energy, rindexAerogel, 2);
@@ -42,9 +46,7 @@ void MyDetectorConstruction::DefineMaterials(){
 	G4MaterialPropertiesTable *mptWorld = new G4MaterialPropertiesTable();
 	mptWorld->AddProperty("RINDEX", energy, rindexWorld, 2);
 	
-	G4double energy[2] = {1.2398*eV*um/0.2/um, 1.2398*eV*um/0.9/um};
-	G4double rindexAerogel[2] = {1.1, 1.1};
-	G4double rindexWorld[2] = {1.0, 1.0};
+
 	
 	Aerogel->SetMaterialPropertiesTable(mptAerogel);	
 	worldMat->SetMaterialPropertiesTable(mptWorld);
