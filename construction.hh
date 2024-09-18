@@ -28,7 +28,7 @@ private:
 
 	virtual void ConstructSDandField();
 
-	G4GenericMessenger *fMessanger;
+	G4GenericMessenger *fMessenger;
 };
 
 #endif
