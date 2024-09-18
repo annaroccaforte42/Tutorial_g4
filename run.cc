@@ -14,7 +14,7 @@ MyRunAction::MyRunAction()
 MyRunAction::~MyRunAction()
 {}
 
-void MyRunAction::BeginOfRunAction(const G4Run*)
+void MyRunAction::BeginOfRunAction(const G4Run* run)
 {
   G4AnalysisManager *man = G4AnalysisManager::Instance();
   G4int runID = run->GetRunID();
