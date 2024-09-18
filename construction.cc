@@ -2,10 +2,13 @@
 
 MyDetectorConstruction::MyDetectorConstruction()
 {
-	fMessanger = new G4GenericMessanger(this,"/detector/","Detector Construction");
+	fMessenger = new G4GenericMessenger(this,"/detector/","Detector Construction");
 
-	fMessanger->DeclareProperty("nCols",nCols,"Number of columns");
-	fMessanger->DeclareProperty("nRows",nRows,"Number of rows");
+	fMessenger->DeclareProperty("nCols",nCols,"Number of columns");
+	fMessenger->DeclareProperty("nRows",nRows,"Number of rows");
+	nCols=100;
+	nRows=100;
+
 }
 
 MyDetectorConstruction::~MyDetectorConstruction()
