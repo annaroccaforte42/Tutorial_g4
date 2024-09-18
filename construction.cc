@@ -49,27 +49,33 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 
 	worldMat->SetMaterialPropertiesTable(mptWorld);
 
-	G4Box *solidWorld = new G4Box("solidWorld", .5*m, .5*m, .5*m);
+	G4double xWorld = 0.5*m;
+	G4double xWorld = 0.5*m;
+	G4double zWorld = 0.5*m;
 
-	G4LogicalVolume *logicWorld = new G4LogicalVolume(solidWorld, worldMat, "logicWorld");
+	solidWorld = new G4Box("solidWorld", xWorld,yWorld,zWorld);
 
-	G4VPhysicalVolume *physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "PhysWorld", 0, false, 0, true);
+	logicWorld = new G4LogicalVolume(solidWorld, worldMat, "logicWorld");
 
-	G4Box *solidRadiator = new G4Box("solidRadiator", .4*m, .4*m, .01*m);
+	physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "PhysWorld", 0, false, 0, true);
 
-	G4LogicalVolume *logicRadiator = new G4LogicalVolume(solidRadiator, Aerogel, "logicRadiator");
+	solidRadiator = new G4Box("solidRadiator", .4*m, .4*m, .01*m);
 
-	G4VPhysicalVolume *physRadiator = new G4PVPlacement(0, G4ThreeVector(.0, .0, .25*m), logicRadiator, "physRadiator", logicWorld, false, 0, true);
+	logicRadiator = new G4LogicalVolume(solidRadiator, Aerogel, "logicRadiator");
 
-	G4Box *solidDetector = new G4Box("solidDetector", 0.005*m, 0.005*m, 0.01*m);
+	physRadiator = new G4PVPlacement(0, G4ThreeVector(.0, .0, .25*m), logicRadiator, "physRadiator", logicWorld, false, 0, true);
+
+	solidDetector = new G4Box("solidDetector", xWorld/nCols, yWorld/nRows, 0.01*m);
 
 	logicDetector = new G4LogicalVolume(solidDetector, worldMat, "logicDetector");
 
-	for(G4int i = 0; i < 100; i++)
+	for(G4int i = 0; i < nRows; i++)
 	{
-		for(G4int j = 0; j < 100; j++)
+		for(G4int j = 0; j < nCols; j++)
 		{
-			G4VPhysicalVolume *physDetector = new G4PVPlacement(0, G4ThreeVector(-0.5*m + (i + 0.5)*m/100, -0.5*m + (j + 0.5)*m/100, 0.5*m - 0.01*m), logicDetector, "physDetector", logicWorld, false, j + i*100, true);
+			physDetector = new G4PVPlacement(0, 
+			G4ThreeVector(-0.5*m + (i + 0.5)*m/nCols, -0.5*m + (j + 0.5)*m/nRows, 0.5*m - 0.01*m), 
+			logicDetector, "physDetector", logicWorld, false, j + i*100, true);
 		}
 	}
 
