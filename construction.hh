@@ -9,6 +9,7 @@
 #include "G4Material.hh"
 #include "G4NistManager.hh"
 #include "G4PVPlacement.hh"
+#include "G4GenericMessanger.hh"
 
 #include "detector.hh"
 
@@ -24,6 +25,8 @@ private:
 	G4LogicalVolume *logicDetector;
 
 	virtual void ConstructSDandField();
+
+	G4GenericMessanger *fMessanger;
 };
 
 #endif
