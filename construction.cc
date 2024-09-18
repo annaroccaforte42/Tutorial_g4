@@ -69,7 +69,7 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 
 	solidDetector = new G4Box("solidDetector", xWorld/nCols, yWorld/nRows, 0.01*m);
 
-	logicDetector = new G4LogicalVolume(solidDetector, worldMat, "logicDetector");
+	logicDetector = new G4LogicVolume(solidDetector, worldMat, "logicDetector");
 
 	for(G4int i = 0; i < nRows; i++)
 	{
