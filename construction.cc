@@ -1,7 +1,12 @@
 #include "construction.hh"
 
 MyDetectorConstruction::MyDetectorConstruction()
-{}
+{
+	fMessanger = new G4GenericMessanger(this,"/detector/","Detector Construction");
+
+	fMessanger->DeclareProperty("nCols",nCols,"Number of columns");
+	fMessanger->DeclareProperty("nRows",nRows,"Number of rows");
+}
 
 MyDetectorConstruction::~MyDetectorConstruction()
 {}
