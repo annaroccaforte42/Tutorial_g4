@@ -24,6 +24,8 @@ public:
 private:
 	G4LogicalVolume *logicDetector;
 
+	G4int nCols,nRows;
+
 	virtual void ConstructSDandField();
 
 	G4GenericMessanger *fMessanger;
