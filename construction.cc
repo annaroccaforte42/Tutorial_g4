@@ -9,13 +9,13 @@ MyDetectorConstruction::MyDetectorConstruction()
 
     fMessenger->DeclareProperty("nCols", nCols, "Number of cols");
     fMessenger->DeclareProperty("nRows", nRows, "Number of rows");
-
+    DefineMaterials();
 }
 
 MyDetectorConstruction::~MyDetectorConstruction()
 {}
 
-void MyDetectorConstruction::DefineMaterial(){
+void MyDetectorConstruction::DefineMaterials(){
 	G4NistManager *nist = G4NistManager::Instance();
 	SiO2 = new G4Material("SiO2", 2.201*g/cm3, 2);
 	SiO2->AddElement(nist->FindOrBuildElement("Si"), 1);
