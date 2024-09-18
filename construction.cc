@@ -50,7 +50,7 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 	worldMat->SetMaterialPropertiesTable(mptWorld);
 
 	G4double xWorld = 0.5*m;
-	G4double xWorld = 0.5*m;
+	G4double yWorld = 0.5*m;
 	G4double zWorld = 0.5*m;
 
 	solidWorld = new G4Box("solidWorld", xWorld,yWorld,zWorld);
