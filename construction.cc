@@ -2,14 +2,16 @@
 
 MyDetectorConstruction::MyDetectorConstruction()
 {
-    nCols = 100;
-    nRows = 100;
 
     fMessenger = new G4GenericMessenger(this, "/detector/", "Detector Construction");
 
     fMessenger->DeclareProperty("nCols", nCols, "Number of cols");
     fMessenger->DeclareProperty("nRows", nRows, "Number of rows");
     DefineMaterials();
+    nCols = 100;
+    nRows = 100;
+
+    
 }
 
 MyDetectorConstruction::~MyDetectorConstruction()
