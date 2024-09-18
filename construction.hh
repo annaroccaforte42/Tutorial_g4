@@ -32,7 +32,7 @@ private:
 
 	G4GenericMessenger *fMessenger;
 
-	G4Material *SiO2, *H2O, *Aerogel, worldMat;
+	G4Material *SiO2, *H2O, *Aerogel, *worldMat;
 	G4Element *C;
 
 	void DefineMaterials();
