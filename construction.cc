@@ -9,7 +9,7 @@ MyDetectorConstruction::MyDetectorConstruction()
 
     fMessenger->DeclareProperty("nCols", nCols, "Number of cols");
     fMessenger->DeclareProperty("nRows", nRows, "Number of rows");
-    DefineMaterial();
+    DefineMaterials();
 }
 
 MyDetectorConstruction::~MyDetectorConstruction()
