@@ -35,7 +35,7 @@ private:
 	G4Material *SiO2, *H2O, *Aerogel, worldMat;
 	G4Element *C;
 
-	void DefineMaterial();
+	void DefineMaterials();
 };
 
 #endif
