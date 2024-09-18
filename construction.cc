@@ -2,12 +2,13 @@
 
 MyDetectorConstruction::MyDetectorConstruction()
 {
-	fMessenger = new G4GenericMessenger(this,"/detector/","Detector Construction");
+    nCols = 10;
+    nRows = 10;
 
-	fMessenger->DeclareProperty("nCols",nCols,"Number of columns");
-	fMessenger->DeclareProperty("nRows",nRows,"Number of rows");
-	nCols=100;
-	nRows=100;
+    fMessenger = new G4GenericMessenger(this, "/detector/", "Detector Construction");
+
+    fMessenger->DeclareProperty("nCols", nCols, "Number of cols");
+    fMessenger->DeclareProperty("nRows", nRows, "Number of rows");
 
 }
 
@@ -69,7 +70,7 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 
 	solidDetector = new G4Box("solidDetector", xWorld/nCols, yWorld/nRows, 0.01*m);
 
-	logicDetector = new G4LogicVolume(solidDetector, worldMat, "logicDetector");
+	logicDetector = new G4LogicalVolume(solidDetector, worldMat, "logicDetector");
 
 	for(G4int i = 0; i < nRows; i++)
 	{
