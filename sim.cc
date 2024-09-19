@@ -22,9 +22,6 @@ int main(int argc, char** argv)
 	runManager->SetUserInitialization(new MyDetectorConstruction());
 	runManager->SetUserInitialization(new MyPhysicsList());
 	runManager->SetUserInitialization(new MyActionInitialization());
-
-	runManager->Initialize();
-
 	
 	if(argc==1){
 		ui=new G4UIExecutive(argc, argv);
