@@ -5,7 +5,7 @@ MyActionInitialization::MyActionInitialization()
 
 MyActionInitialization::~MyActionInitialization()
 {}
-void MyActionInitialization::BuildForMaster() {
+void MyActionInitialization::BuildForMaster() const {
 	MyRunAction *runAction = new MyRunAction();
 	SetUserAction(runAction);
 }
