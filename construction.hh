@@ -30,8 +30,7 @@ private:
 	virtual void ConstructSDandField();
 	G4int nCols, nRows;
 	G4double xWorld,yWorld,zWorld;
-	G4Box *solidWorld, *solidRadiator, *solidDetector;
-	G4Tube *solidScintillator;
+	G4Box *solidWorld, *solidRadiator, *solidDetector, *solidScintillator;
 	
 	G4LogicalVolume *logicWorld, *logicRadiator, *logicScintillator;
 	G4VPhysicalVolume *physWorld, *physRadiator, *physDetector, *physScintillator;
