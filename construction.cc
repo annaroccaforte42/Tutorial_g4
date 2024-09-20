@@ -10,8 +10,10 @@ MyDetectorConstruction::MyDetectorConstruction()
     DefineMaterials();
     nCols = 100;
     nRows = 100;
-
-    
+	
+    xWorld = 0.5*m;
+    yWorld = 0.5*m;
+    zWorld = 0.5*m;
 }
 
 MyDetectorConstruction::~MyDetectorConstruction()
@@ -81,11 +83,6 @@ void MyDetectorConstruction::ConstructCherenkov(){
 
 G4VPhysicalVolume* MyDetectorConstruction::Construct()
 {
-
-	G4double xWorld = 0.5*m;
-	G4double yWorld = 0.5*m;
-	G4double zWorld = 0.5*m;
-
 	solidWorld = new G4Box("solidWorld", xWorld,yWorld,zWorld);
 
 	logicWorld = new G4LogicalVolume(solidWorld, worldMat, "logicWorld");
