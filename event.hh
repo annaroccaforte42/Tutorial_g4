@@ -17,7 +17,7 @@ public:
   void AddEdep(G4double edep){fEdep += edep;}
 
 private:
-  G4double fEdep
+  G4double fEdep;
 
 };
 #endif
