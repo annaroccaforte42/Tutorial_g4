@@ -43,6 +43,7 @@ private:
 	void ConstructScintillator();
 
 	G4LogicalVolume *fScoringVolume;
+	G4bool isCherenkov, isScintillator;
 };
 
 #endif
