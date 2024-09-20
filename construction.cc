@@ -86,6 +86,9 @@ void MyDetectorConstruction::ConstructCherenkov(){
 }
 
 void MyDetectorConstruction::ConstructScintillator(){
+	solidScintillator=new G4Tubs("solidScintillator",10*cm,20*cm,30*cm,0*deg,360*deg);
+	logicScintillator= new G4LogicalVolume(solidScintillator,NaI,"logicalScintillator");
+	physScintillator= new G4PVPlacement(0.,0.,0.),logicScintillator,"physScintillator",logicWorld,false,0,true);
 	
 	
 }
