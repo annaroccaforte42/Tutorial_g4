@@ -37,8 +37,8 @@ private:
 
 	G4GenericMessenger *fMessenger;
 
-	G4Material *SiO2, *H2O, *Aerogel, *worldMat;
-	G4Element *C;
+	G4Material *SiO2, *H2O, *Aerogel, *worldMat, *NaI;
+	G4Element *C,*Na,*I;
 
 	void DefineMaterials();
 	void ConstructCherenkov();
