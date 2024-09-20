@@ -12,6 +12,7 @@
 #include "G4PVPlacement.hh"
 #include "G4GenericMessenger.hh"
 #include "G4OpticalSurface.hh"
+#include "G4LogicalSkinSurface.hh"
 
 #include "detector.hh"
 
