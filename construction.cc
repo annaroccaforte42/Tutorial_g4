@@ -13,7 +13,7 @@ MyDetectorConstruction::MyDetectorConstruction()
     nCols = 10;
     nRows = 10;
 	
-    xWorld = 0.5*m;e
+    xWorld = 0.5*m;
     yWorld = 0.5*m;
     zWorld = 0.5*m;
 
