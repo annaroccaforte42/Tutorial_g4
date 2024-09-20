@@ -7,6 +7,8 @@ MyDetectorConstruction::MyDetectorConstruction()
 
     fMessenger->DeclareProperty("nCols", nCols, "Number of cols");
     fMessenger->DeclareProperty("nRows", nRows, "Number of rows");
+    fMessenger->DeclareProperty("isCherenkov", isCherenkov, "Toggle Cherenkov setup");
+    fMessenger->DeclareProperty("isScintillator", isScintillator, "Toggle Scintillator setup");
     DefineMaterials();
     nCols = 10;
     nRows = 10;
@@ -14,6 +16,9 @@ MyDetectorConstruction::MyDetectorConstruction()
     xWorld = 0.5*m;
     yWorld = 0.5*m;
     zWorld = 0.5*m;
+
+    isCherenkov=false;
+    isScintillator=true;
 }
 
 MyDetectorConstruction::~MyDetectorConstruction()
