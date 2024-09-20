@@ -95,7 +95,7 @@ void MyDetectorConstruction::ConstructScintillator(){
 
 	fScoringVolume=logicScintillator;
 	
-	physScintillator= new G4PVPlacement(0.,0.,0.),logicScintillator,"physScintillator",logicWorld,false,0,true);
+	physScintillator= new G4PVPlacement(0, G4ThreeVector(0., 0., 0.),logicScintillator,"physScintillator",logicWorld,false,0,true);
 	
 	
 }
