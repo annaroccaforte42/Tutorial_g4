@@ -46,7 +46,9 @@ void MyDetectorConstruction::DefineMaterials(){
 	G4double energy[2] = {1.2398*eV*um/0.2/um, 1.2398*eV*um/0.9/um};
 	G4double rindexAerogel[2] = {1.1, 1.1};
 	G4double rindexWorld[2] = {1.0, 1.0};
-	
+	G4double rindexNaI[2] = {1.78, 1.78};
+	G4double fraction[2]={1.0,1.0};
+	G4double reflectivity = {1.0,1.0};
 	
 	G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
 	mptAerogel->AddProperty("RINDEX", energy, rindexAerogel, 2);
@@ -65,8 +67,7 @@ void MyDetectorConstruction::DefineMaterials(){
 	NaI->AddElement(I,1);
 	NaI->AddElement(Na,1);
 
-	G4double rindexNaI[2] = {1.78, 1.78};
-	G4double fraction[2]={1.0,1.0};
+	
 
 	G4MaterialPropertiesTable *mptNaI = new G4MaterialPropertiesTable();
    	mptNaI->AddProperty("RINDEX", energy, rindexNaI, 2);
@@ -77,6 +78,12 @@ void MyDetectorConstruction::DefineMaterials(){
     	mptNaI->AddConstProperty("YIELDRATIO",1.);
     	NaI->SetMaterialPropertiesTable(mptNaI);
 
+
+	mirrorSurface = new G4OpticalSurface("mirrorSurface");
+
+	G4MaterialPropertiesTable *mptMirror = new G4MaterialPropertiesTable();
+	mptMirror->AddProperty("REFLECTIVITY",energy,reflectivity,2);
+	mirrorSurface->SetMaterialPropertiesTable(mptMirror);
 }
 
 void MyDetectorConstruction::ConstructCherenkov(){
@@ -115,6 +122,8 @@ void MyDetectorConstruction::ConstructScintillator(){
 	logicDetector = new G4LogicalVolume(solidDetector,worldMat,"logicDetector");
 	
 	fScoringVolume=logicScintillator;
+
+	G4LogicalSkinSurface *skin = new G4LogicalSkinSurface("skin", logicWorld, mirrorSurface);
 
 	for(G4int i=0;i<6;i++){
 		
