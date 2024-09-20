@@ -39,7 +39,7 @@ private:
 
 	void DefineMaterials();
 
-	G4LogicalVolume fScoringVolume;
+	G4LogicalVolume *fScoringVolume;
 };
 
 #endif
