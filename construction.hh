@@ -38,6 +38,8 @@ private:
 	G4Element *C;
 
 	void DefineMaterials();
+	void ConstructCherenkov();
+	void ConstructScintillator();
 
 	G4LogicalVolume *fScoringVolume;
 };
