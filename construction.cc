@@ -13,7 +13,7 @@ MyDetectorConstruction::MyDetectorConstruction()
     nCols = 10;
     nRows = 10;
 	
-    xWorld = 0.5*m;
+    xWorld = 0.5*m;e
     yWorld = 0.5*m;
     zWorld = 0.5*m;
 
@@ -80,6 +80,11 @@ void MyDetectorConstruction::DefineMaterials(){
 
 
 	mirrorSurface = new G4OpticalSurface("mirrorSurface");
+
+	mirrorSurface->SetType(dielectric_metal);
+	mirrorSurface->SetFinish(ground);
+	mirrorSurface->SetModel(unified);
+	
 
 	G4MaterialPropertiesTable *mptMirror = new G4MaterialPropertiesTable();
 	mptMirror->AddProperty("REFLECTIVITY",energy,reflectivity,2);
