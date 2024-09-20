@@ -48,7 +48,7 @@ void MyDetectorConstruction::DefineMaterials(){
 	G4double rindexWorld[2] = {1.0, 1.0};
 	G4double rindexNaI[2] = {1.78, 1.78};
 	G4double fraction[2]={1.0,1.0};
-	G4double reflectivity = {1.0,1.0};
+	G4double reflectivity[2]= {1.0,1.0};
 	
 	G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
 	mptAerogel->AddProperty("RINDEX", energy, rindexAerogel, 2);
