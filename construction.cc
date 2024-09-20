@@ -90,14 +90,22 @@ void MyDetectorConstruction::ConstructCherenkov(){
 }
 
 void MyDetectorConstruction::ConstructScintillator(){
-	solidScintillator=new G4Tubs("solidScintillator",10*cm,20*cm,30*cm,0*deg,360*deg);
+	solidScintillator=new G4Box("solidScintillator",5*cm,5*cm,6*cm);
 	
 	logicScintillator= new G4LogicalVolume(solidScintillator,NaI,"logicalScintillator");
 
 	fScoringVolume=logicScintillator;
-	
-	physScintillator= new G4PVPlacement(0, G4ThreeVector(0., 0., 0.),logicScintillator,"physScintillator",logicWorld,false,0,true);
-	
+
+	for(G4int i=0;i<6;i++){
+		
+		for (G4int j=0;j<16;j++){
+			G4Rotate3D rotZ(j*22.5*deg,G4ThreeVector(0,0,1));
+			G4Translate3D transXScint(G4ThreeVector(5./tan(22.5/2*deg)*cm+5.*cm,0*cm,-40*cm+i*15*cm));
+
+			G4Transform3D transformScint= (rotZ)*(transXscint); //first trans then rot along Z
+			physScintillator= new G4PVPlacement(transformScint,logicScintillator,"physScintillator",logicWorld,false,0,true);
+		}
+	}
 	
 }
 
