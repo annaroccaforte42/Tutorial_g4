@@ -52,19 +52,7 @@ void MyDetectorConstruction::DefineMaterials(){
 	worldMat->SetMaterialPropertiesTable(mptWorld);
 }
 
-G4VPhysicalVolume* MyDetectorConstruction::Construct()
-{
-
-	G4double xWorld = 0.5*m;
-	G4double yWorld = 0.5*m;
-	G4double zWorld = 0.5*m;
-
-	solidWorld = new G4Box("solidWorld", xWorld,yWorld,zWorld);
-
-	logicWorld = new G4LogicalVolume(solidWorld, worldMat, "logicWorld");
-
-	physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "PhysWorld", 0, false, 0, true);
-
+void MyDetectorConstruction::ConstructCherenkov(){
 	solidRadiator = new G4Box("solidRadiator", .4*m, .4*m, .01*m);
 
 	logicRadiator = new G4LogicalVolume(solidRadiator, Aerogel, "logicRadiator");
@@ -87,6 +75,24 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 		}
 	}
 
+	
+}
+
+
+G4VPhysicalVolume* MyDetectorConstruction::Construct()
+{
+
+	G4double xWorld = 0.5*m;
+	G4double yWorld = 0.5*m;
+	G4double zWorld = 0.5*m;
+
+	solidWorld = new G4Box("solidWorld", xWorld,yWorld,zWorld);
+
+	logicWorld = new G4LogicalVolume(solidWorld, worldMat, "logicWorld");
+
+	physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "PhysWorld", 0, false, 0, true);
+
+	
 	return physWorld;
 }
 
