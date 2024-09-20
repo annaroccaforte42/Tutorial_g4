@@ -11,6 +11,7 @@
 #include "G4NistManager.hh"
 #include "G4PVPlacement.hh"
 #include "G4GenericMessenger.hh"
+#include "G4OpticalSurface.hh"
 
 #include "detector.hh"
 
@@ -47,6 +48,7 @@ private:
 
 	G4LogicalVolume *fScoringVolume;
 	G4bool isCherenkov, isScintillator;
+	G4OpticalSurface *mirrorSurface;
 };
 
 #endif
