@@ -58,6 +58,7 @@ void MyDetectorConstruction::DefineMaterials(){
 
 	Na=nist->FindOrBuildElement("Na");
 	I=nist->FindOrBuildElement("I");
+	NaI=new G4Material("NaI",3.67*g/cm3,2);
 	NaI->AddElement(I,1);
 	NaI->AddElement(Na,1);
 }
