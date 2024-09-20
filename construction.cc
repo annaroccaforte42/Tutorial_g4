@@ -102,7 +102,7 @@ void MyDetectorConstruction::ConstructScintillator(){
 			G4Rotate3D rotZ(j*22.5*deg,G4ThreeVector(0,0,1));
 			G4Translate3D transXScint(G4ThreeVector(5./tan(22.5/2*deg)*cm+5.*cm,0*cm,-40*cm+i*15*cm));
 
-			G4Transform3D transformScint= (rotZ)*(transXscint); //first trans then rot along Z
+			G4Transform3D transformScint= (rotZ)*(transXScint); //first trans then rot along Z
 			physScintillator= new G4PVPlacement(transformScint,logicScintillator,"physScintillator",logicWorld,false,0,true);
 		}
 	}
