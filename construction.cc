@@ -85,6 +85,10 @@ void MyDetectorConstruction::ConstructCherenkov(){
 	
 }
 
+void MyDetectorConstruction::ConstructScintillator(){
+	
+	
+}
 
 G4VPhysicalVolume* MyDetectorConstruction::Construct()
 {
