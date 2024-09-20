@@ -94,6 +94,10 @@ void MyDetectorConstruction::ConstructScintillator(){
 	
 	logicScintillator= new G4LogicalVolume(solidScintillator,NaI,"logicalScintillator");
 
+	solidDetector = new G4Box("solid Detector",1*cm, 5*cm, 6*cm);
+
+	logicDetector = new G4LogicalVolume(solidDetector,worldMat,"logicDetector");
+	
 	fScoringVolume=logicScintillator;
 
 	for(G4int i=0;i<6;i++){
@@ -101,9 +105,14 @@ void MyDetectorConstruction::ConstructScintillator(){
 		for (G4int j=0;j<16;j++){
 			G4Rotate3D rotZ(j*22.5*deg,G4ThreeVector(0,0,1));
 			G4Translate3D transXScint(G4ThreeVector(5./tan(22.5/2*deg)*cm+5.*cm,0*cm,-40*cm+i*15*cm));
+			
+			G4Translate3D transXDet(G4ThreeVector(5./tan(22.5/2*deg)*cm+11.*cm,0*cm,-40*cm+i*15*cm));
 
 			G4Transform3D transformScint= (rotZ)*(transXScint); //first trans then rot along Z
+			G4Transform3D transformDet= (rotZ)*(transXDet); 
+			
 			physScintillator= new G4PVPlacement(transformScint,logicScintillator,"physScintillator",logicWorld,false,0,true);
+			physDetector= new G4PVPlacement(transformDet,logicDetector,"physDetector",logicWorld,false,0,true);
 		}
 	}
 	
@@ -130,6 +139,6 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 void MyDetectorConstruction::ConstructSDandField()
 {
 	MySensitiveDetector *sensDet = new MySensitiveDetector("SensitiveDetector");
-	if(isCherenkov)
+	if(logicDetector =! NULL)
 		logicDetector->SetSensitiveDetector(sensDet);
 }
