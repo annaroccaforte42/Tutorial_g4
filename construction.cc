@@ -53,10 +53,13 @@ void MyDetectorConstruction::DefineMaterials(){
 	G4MaterialPropertiesTable *mptWorld = new G4MaterialPropertiesTable();
 	mptWorld->AddProperty("RINDEX", energy, rindexWorld, 2);
 	
-
-	
 	Aerogel->SetMaterialPropertiesTable(mptAerogel);	
 	worldMat->SetMaterialPropertiesTable(mptWorld);
+
+	Na=nist->FindOrBuildElement("Na");
+	I=nist->FindOrBuildElement("I");
+	NaI->AddElement(I,1);
+	NaI->AddElement(Na,1);
 }
 
 void MyDetectorConstruction::ConstructCherenkov(){
