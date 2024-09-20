@@ -94,13 +94,14 @@ G4VPhysicalVolume* MyDetectorConstruction::Construct()
 
 	physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "PhysWorld", 0, false, 0, true);
 
-	
+	if(isCherenkov)
+		ConstructCherenkov();
 	return physWorld;
 }
 
 void MyDetectorConstruction::ConstructSDandField()
 {
 	MySensitiveDetector *sensDet = new MySensitiveDetector("SensitiveDetector");
-
-	logicDetector->SetSensitiveDetector(sensDet);
+	if(isCherenkov)
+		logicDetector->SetSensitiveDetector(sensDet);
 }
