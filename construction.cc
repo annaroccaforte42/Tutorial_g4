@@ -56,7 +56,7 @@ void MyDetectorConstruction::DefineMaterials(){
 	
 	Aerogel->SetMaterialPropertiesTable(mptAerogel);	
 	worldMat->SetMaterialPropertiesTable(mptWorld);
-	G4MaterialPropertiesTable *mptNaI = new G4MaterialPropertiesTable();
+	
 
 
 	Na=nist->FindOrBuildElement("Na");
@@ -67,6 +67,8 @@ void MyDetectorConstruction::DefineMaterials(){
 
 	G4double rindexNaI[2] = {1.78, 1.78};
 	G4double fraction[2]={1.0,1.0};
+
+	G4MaterialPropertiesTable *mptNaI = new G4MaterialPropertiesTable();
 	mptNaI->AddProperty("RINDEX",energy,rindexNaI,2);
 	mptNaI->AddProperty("FASTCOMPONENT",energy,fraction,2);
 	mptNaI->AddConstProperty("SCINTILLATIONYELD",38.*keV);
