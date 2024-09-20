@@ -69,13 +69,14 @@ void MyDetectorConstruction::DefineMaterials(){
 	G4double fraction[2]={1.0,1.0};
 
 	G4MaterialPropertiesTable *mptNaI = new G4MaterialPropertiesTable();
-	mptNaI->AddProperty("RINDEX",energy,rindexNaI,2);
-	mptNaI->AddProperty("FASTCOMPONENT",energy,fraction,2);
-	mptNaI->AddConstProperty("SCINTILLATIONYELD",38.*keV);
-	mptNaI->AddConstProperty("FASTTIMECONSTANT",250*ns);
-	mptNaI->AddConstProperty("RESOLUTIONSCALE",1.0);
-	mptNaI->AddConstProperty("YELDRATIO",1.);
-	NaI->SetMaterialPropertiesTable(mptNaI);
+   	mptNaI->AddProperty("RINDEX", energy, rindexNaI, 2);
+  	mptNaI->AddProperty("FASTCOMPONENT", energy, fraction, 2);
+  	mptNaI->AddConstProperty("SCINTILLATIONYIELD",38./keV);
+    	mptNaI->AddConstProperty("RESOLUTIONSCALE",1.0);
+    	mptNaI->AddConstProperty("FASTTIMECONSTANT", 250.*ns);
+    	mptNaI->AddConstProperty("YIELDRATIO",1.);
+    	NaI->SetMaterialPropertiesTable(mptNaI);
+
 }
 
 void MyDetectorConstruction::ConstructCherenkov(){
