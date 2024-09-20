@@ -46,6 +46,7 @@ void MyDetectorConstruction::DefineMaterials(){
 	G4double energy[2] = {1.2398*eV*um/0.2/um, 1.2398*eV*um/0.9/um};
 	G4double rindexAerogel[2] = {1.1, 1.1};
 	G4double rindexWorld[2] = {1.0, 1.0};
+	G4double rindexNaI[2] = {1.78, 1.78};
 	
 	G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
 	mptAerogel->AddProperty("RINDEX", energy, rindexAerogel, 2);
@@ -55,12 +56,18 @@ void MyDetectorConstruction::DefineMaterials(){
 	
 	Aerogel->SetMaterialPropertiesTable(mptAerogel);	
 	worldMat->SetMaterialPropertiesTable(mptWorld);
+	G4MaterialPropertiesTable *mptNaI = new G4MaterialPropertiesTable();
+
 
 	Na=nist->FindOrBuildElement("Na");
 	I=nist->FindOrBuildElement("I");
 	NaI=new G4Material("NaI",3.67*g/cm3,2);
 	NaI->AddElement(I,1);
 	NaI->AddElement(Na,1);
+
+	G4double fraction[2]={1.0,1.0};
+	mptNaI->AddProperty("RINDEX",energy,rindexNaI,2);
+	mptNaI->AddProperty("FASTCOMPONENT",energy,fraction,2);
 }
 
 void MyDetectorConstruction::ConstructCherenkov(){
